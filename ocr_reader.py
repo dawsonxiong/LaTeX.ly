@@ -1,19 +1,14 @@
-from pathlib import Path
-from PIL import Image
 import pytesseract
-import cv2
-import numpy as np
 
-# configure tesseract path
-pytesseract.pytesseract.tesseract_cmd = r'D:\Apps\tesseract\tesseract.exe'
+def read_char(image):
+    # Configure Tesseract
+    # pytesseract.pytesseract.tesseract_cmd = r'D:\Apps\Tesseract-OCR\tesseract.exe'
 
-# loading + processing image
-image_path = 'D:/Code/test_1.png'
-image = cv2.imread(image_path)
+    # Create custom configuration
+    custom_config = f'--oem 1 --psm 10' # 3,6,7,11 psm works for lines, 10 for single characters
 
-# custom tesseract configuration
-math_config = r'--oem 3 --psm 11 -c tessedit_char_whitelist=0123456789+-*/=^()!.x'
+    # Load an image
+    # image = cv2.imread(image_path)
 
-# print tesseract OCR's results
-text = pytesseract.image_to_string(image, config=math_config, lang='eng')
-print(text)
+    text = pytesseract.image_to_string(image, lang = "eng", config=custom_config)
+    return text 
