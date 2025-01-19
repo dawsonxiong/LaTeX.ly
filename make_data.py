@@ -39,24 +39,16 @@ fonts = {
 
 # Dictionary to convert awkward symbol names to more readable names
 rename_map = {
-    "(": "left_bracket",
-    ")": "right_bracket",
-    ",": "comma",
-    "-": "dash",
-    "{": "left_curly",
-    "}": "right_curly",
-    "+": "plus",
-    "=": "equals",
-    "|": "abs_val",
-    "<": "less_than",
-    ">": "greater_than",
-    "/": "slash"
+    ">": "gt",
+    "<": "lt",
+    "|": "vertical-bar",
+    "/": "forwards-slash"
 }
 
 # also wants to add support for fractions, exponents, degrees, sqrt, abs
 
 # Set directory
-base = r"data"
+base = r"data/train"
 os.makedirs(base, exist_ok=True)
 
 # Process math symbols
