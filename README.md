@@ -1,2 +1,2 @@
-### Welcome to LaTeX.ly!
+# Welcome to LaTeX.ly!
 
