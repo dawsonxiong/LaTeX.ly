@@ -1,8 +1,10 @@
-import cv2
-from image_processing import preprocess_image, extract_contours, merge_equals, resize_image
-from tesseract_read import read_char
+import os
 
-filename = r'D:\Code\latex.ly\test_1.png' # test image path
+import cv2
+from process import preprocess_image, extract_contours, merge_equals, resize_image, make_square_symbol
+from predict import predict_out
+
+filename = r'ex6.png' # test image path
 
 # Processing image
 inverted_img = preprocess_image(filename)
@@ -30,8 +32,14 @@ for i, c in enumerate(valid_contours):
     cropped_contour = inverted_img[y:y + h, x:x + w]
     cropped_contour = cv2.bitwise_not(cropped_contour)
     cropped_contour = resize_image(cropped_contour)
+    cropped_contour = make_square_symbol(cropped_contour)
 
-    text = read_char(cropped_contour)
+    os.makedirs('temp/ex6', exist_ok=True)
+
+    temp_image_path = f'temp/ex6/temp_contour_{i + 1}.png'
+    cv2.imwrite(temp_image_path, cropped_contour)
+    text = predict_out(temp_image_path)
+
     print(f"Contour {i + 1}: {text}")
-    output_path = f'D:\\Code\\latex.ly\\ex1 contours\\contour_{i + 1}.png'
+    output_path = f'temp/ex6/contour_{i + 1}.png'
     cv2.imwrite(output_path, cropped_contour)
