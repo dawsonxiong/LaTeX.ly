@@ -50,9 +50,10 @@
 
 ### How Neural Networks work
 - With this project, I got to work with and understand how CNNs take in data and output results
-- Layered Structure:
-  - Neural networks consist of an input layer, hidden layers, and an output layer
-  - Each layer contains neurons that process information through weighted connections
+- I learned:
+  - How to structure a neural network for OCR tasks, balancing the number of layers and neurons for training
+  - The importance of choosing the right activation functions (i.e. ReLU improved symbol detection, while softmax was useful for classification)
+  - How to use SGD with mini-batches for efficiency and Cross Entropy Loss to improve accuracy
 
 ### It's okay to start over
 - I originally started this project in November, deciding to use Tesseract, a pre-built open source OCR model
