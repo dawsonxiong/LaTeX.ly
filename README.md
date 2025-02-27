@@ -1,6 +1,6 @@
 # Welcome to LaTeX.ly!
 
-![Homepage](https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png)
+<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png" alt="Homepage" width="500" height="500">
 
 ## 🚀 Features
 - Math equation uploading and processing
@@ -51,8 +51,7 @@ Almost 50k images!
 - For instance, my algorithm applies a Gaussian blur, adaptive thresholding, and a denoising filter amongst other things
 - Without preprocessing data, the model's accuracy significantly decreases
 
-![Prediction](https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/prediction.png)
-OCR accuracy
+<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/prediction.png" alt="Prediction" width="220" height="210">
 
 ### How Neural Networks work
 - With this project, I got to work with and understand how CNNs take in data and output results
