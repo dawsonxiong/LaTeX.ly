@@ -42,11 +42,17 @@
 - Ultimately, I ended up with **49k+ unique images of math symbols**
 - Throughout the process, I had to consistently find and create more data, without overfitting
 
+![Dataset](https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/dataset.png)
+Almost 50k images!
+
 ### Preprocessing data is key
 - Data, especially handwritten math symbols, contain many inconsistencies
 - With a convolutional neural network trained on consistent data, it is necessary to process data before usage
 - For instance, my algorithm applies a Gaussian blur, adaptive thresholding, and a denoising filter amongst other things
 - Without preprocessing data, the model's accuracy significantly decreases
+
+![Prediction](https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/prediction.png)
+OCR accuracy
 
 ### How Neural Networks work
 - With this project, I got to work with and understand how CNNs take in data and output results
