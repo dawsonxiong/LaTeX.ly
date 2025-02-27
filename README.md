@@ -63,5 +63,5 @@
 - Having restarted my project, I spent many hours cultivating a dataset, which I then used to train my model
 - But in my first four attempts, my model had surprisingly low accuracy
   - In the CROHME dataset, there were many innacurate symbols
-  - After slowly cleaning my dataset, 5 models later, I had created one that was **90%+ more accurate than Tesseract **
+  - After slowly cleaning my dataset, 5 models later, I had created one that was **90%+ more accurate than Tesseract**
 - Approaching and learning something new is scary. But I learned not to be afraid to restart, if it means getting on the right track
