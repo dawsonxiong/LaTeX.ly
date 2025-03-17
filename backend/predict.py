@@ -37,8 +37,13 @@ classes = ['!', '(', ')', '+', ',', '-', '0', '1', '2', '3', '4', '5', '6', '7',
     '\\pm', 'q', 'r', '\\rightarrow', 's', '\\sigma', '\\sin', '\\sum', 't', '\\tan', '\\theta', '\\times', 'u', 'A', 'B', 'C',
     'E', 'F', 'G', 'I', 'N', 'P', 'R', 'S', 'T', 'X', 'v', '|', 'w', 'x', 'y', 'z', '\\{', '\\}']
 
-def predict_out(img_path):
-    image = Image.open(img_path).convert('RGB')  # Convert to RGB colour type
+def predict_out(input_source, is_path=True):
+    # Working with image path vs raw image
+    if is_path:
+        image = Image.open(input_source).convert('RGB')
+    else:
+        image = Image.fromarray(input_source).convert('RGB')
+    
     image = preprocess(image).unsqueeze(0)
 
     with torch.no_grad():
@@ -46,6 +51,7 @@ def predict_out(img_path):
         probabilities = f.softmax(output, dim=1)
         predicted_prob, predicted_idx = torch.max(probabilities, 1)
         predicted_class = classes[predicted_idx]
-        confidence = predicted_prob.item() * 100  # convert to percentage
-
-    return f'Predicted Class: {predicted_class}, Confidence: {confidence:.2f}%'
+        confidence = predicted_prob.item() * 100
+    
+    # return f'Predicted Class: {predicted_class}, Confidence: {confidence:.2f}%' (formatted)
+    return predicted_class

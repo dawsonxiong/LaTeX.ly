@@ -13,6 +13,7 @@ def preprocess_image(img_path):
     cleaned = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
     return cleaned
 
+
 # Extracting contours for each character
 def extract_contours(inverted_img):
     padding = 5.7
@@ -37,6 +38,7 @@ def extract_contours(inverted_img):
         adjusted_contours.append(adjusted_contour)
     return adjusted_contours
 
+
 # Note: will add support for other similar symbols
 # Detecting and dealing with equals sign
 def is_equals_sign(w1, h1, w2, h2):
@@ -51,6 +53,7 @@ def is_equals_sign(w1, h1, w2, h2):
     heights_small = h1_ratio < 0.5 and h2_ratio < 0.5  # Lines are wider than tall
 
     return widths_similar and heights_small
+
 
 def merge_equals(contours):
     merged_contours = []
@@ -81,6 +84,7 @@ def merge_equals(contours):
         i += 1
 
     return merged_contours
+
 
 # Resizing image to a height of 40px
 def resize_image(image):
