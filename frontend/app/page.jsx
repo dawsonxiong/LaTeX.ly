@@ -10,58 +10,73 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-row items-center gap-4 mb-7 mt-3">
-        <h1 className="text-4xl font-bold px-4 py-1 rounded-full bg-orange-100 text-orange-700 py-3">
-LaTeX.ly
-</h1>
-        <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-lg font-bold">
-          Convert Images to LaTeX
+      <div className="flex flex-col items-center gap-4 mb-7 mt-3">
+        <div className="px-3 py-1 text-6xl text-center font-montserrat">
+          Math-to-LaTeX conversion,
+        </div>
+        <div className="px-3 py-1 bg-blue-100 text-blue-700 text-6xl font-semibold font-montserrat text-center">
+          in a snap 👇
         </div>
       </div>
 
       <Upload setLatexOutput={setLatexOutput} />
       {latexOutput && <PreviewOutput latex={latexOutput} />}
 
-      <Image 
-          src="/example.png"
-          alt="Example Equation"
-          width={350}
-          height={250}
-          className="rounded-lg shadow-md mt-8"
-        />
+      <div className="flex flex-row items-center justify-center gap-8 mt-14 translate-x-13">
+        {/* Original Math Equation */}
+        <div className="flex flex-col items-center">
+          <Image 
+            src="/example.png"
+            alt="Example Equation"
+            width={350}
+            height={250}
+            className="rounded-lg shadow-md"
+          />
+          <p className="text-center text-gray-700 font-bold mt-5 font-montserrat bg-blue-100">Original math equation</p>
+        </div>
 
+        {/* Right Arrow */}
         <Image 
-          src="/down_arrow.png"
-          alt="Example Equation"
-          width={10}
-          height={10}
-          className="rounded-lg my-5"
+          src="/right_arrow.png"
+          alt="Right Arrow"
+          width={50}
+          height={50}
+          className="rounded-lg relative -translate-y-5"
         />
 
+        {/* Contours + OCR */}
+        <div className="flex flex-col items-center justify-center">
+          <Image 
+            src="/contour.png"
+            alt="Contours + OCR"
+            width={350}
+            height={250}
+            className="rounded-lg shadow-md"
+          />
+          <p className="text-center text-gray-700 mt-6 font-bold font-inter bg-blue-100">Contours + OCR</p>
+        </div>
+
+        {/* Right Arrow */}
         <Image 
-          src="/contour.png"
-          alt="Equation Contour"
-          width={350}
-          height={250}
-          className="rounded-lg shadow-md"
+          src="/right_arrow.png"
+          alt="Right Arrow"
+          width={50}
+          height={50}
+          className="rounded-lg relative -translate-y-5"
         />
 
-        <Image 
-          src="/down_arrow.png"
-          alt="Example Equation"
-          width={10}
-          height={10}
-          className="rounded-lg my-5"
-        />
-
-      <Image 
-          src="/latex.png"
-          alt="Equation Contour"
-          width={500}
-          height={250}
-          className="rounded-lg shadow-md"
-        />
-      
+        {/* LaTeX Code */}
+        <div className="flex flex-col items-center">
+          <Image 
+            src="/latex.png"
+            alt="LaTeX Code"
+            width={500}
+            height={250}
+            className="rounded-lg shadow-md"
+          />
+          <p className="text-center text-gray-700 mt-7 font-bold font-inter bg-blue-100">LaTeX code</p>
+        </div>
+      </div>
     </div>
   );
 }
