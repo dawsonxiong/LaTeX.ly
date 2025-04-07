@@ -78,6 +78,7 @@ def is_dot_or_hat(c1, c2):
     return x_aligned and has_small_component and reasonable_gap
 
 
+# Merging contours if they are an equals sign or a dot/hats (i.e. i and j)
 def merge(contours):
     merged_contours = []
     i = 0

@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         inter: ["Inter", "sans-serif"],
+        figtree: ["Figtree", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
