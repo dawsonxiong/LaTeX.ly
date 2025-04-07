@@ -53,9 +53,9 @@ def process_latex():
         cv2.rectangle(output_img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         # Display the image with the contour
-        cv2.imshow("Contours", output_img)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        #cv2.imshow("Contours", output_img)
+        #cv2.waitKey(0)
+        #cv2.destroyAllWindows()
 
         x, y, w, h = cv2.boundingRect(c)
         coordinates.append(x)
