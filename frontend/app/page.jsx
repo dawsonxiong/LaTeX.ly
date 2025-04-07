@@ -1,12 +1,24 @@
 "use client";
-import Image from 'next/image';
 
+import Image from 'next/image';
 import { useState } from "react";
 import Upload from "/components/Upload";
 import PreviewOutput from "/components/PreviewOutput";
 
 export default function Home() {
   const [latexOutput, setLatexOutput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleLatexOutput = async (output) => {
+    try {
+      setLatexOutput(output);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      console.error('Error handling LaTeX output:', err);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -19,7 +31,10 @@ export default function Home() {
         </div>
       </div>
 
-      <Upload setLatexOutput={setLatexOutput} />
+      <Upload setLatexOutput={handleLatexOutput} />
+      {error && (
+        <div className="text-red-500 mt-4 font-inter">{error}</div>
+      )}
       {latexOutput && <PreviewOutput latex={latexOutput} />}
 
       <div className="flex flex-row items-center justify-center gap-8 mt-14 translate-x-13">
@@ -31,8 +46,11 @@ export default function Home() {
             width={350}
             height={250}
             className="rounded-lg shadow-md"
+            priority
           />
-          <p className="text-center text-gray-700 font-bold mt-5 font-montserrat bg-blue-100">Original math equation</p>
+          <p className="text-center text-gray-700 font-bold mt-5 font-montserrat bg-blue-100 px-4 py-2 rounded-md">
+            Original math equation
+          </p>
         </div>
 
         {/* Right Arrow */}
@@ -41,19 +59,22 @@ export default function Home() {
           alt="Right Arrow"
           width={50}
           height={50}
-          className="rounded-lg relative -translate-y-5"
+          className="rounded-lg relative -translate-y-8"
         />
 
         {/* Contours + OCR */}
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center">
           <Image 
             src="/contour.png"
             alt="Contours + OCR"
             width={350}
             height={250}
             className="rounded-lg shadow-md"
+            priority
           />
-          <p className="text-center text-gray-700 mt-6 font-bold font-inter bg-blue-100">Contours + OCR</p>
+          <p className="text-center text-gray-700 font-bold mt-5 font-inter bg-blue-100 px-4 py-2 rounded-md">
+            Contours + OCR
+          </p>
         </div>
 
         {/* Right Arrow */}
@@ -62,7 +83,7 @@ export default function Home() {
           alt="Right Arrow"
           width={50}
           height={50}
-          className="rounded-lg relative -translate-y-5"
+          className="rounded-lg relative -translate-y-8"
         />
 
         {/* LaTeX Code */}
@@ -73,8 +94,11 @@ export default function Home() {
             width={500}
             height={250}
             className="rounded-lg shadow-md"
+            priority
           />
-          <p className="text-center text-gray-700 mt-7 font-bold font-inter bg-blue-100">LaTeX code</p>
+          <p className="text-center text-gray-700 font-bold mt-5 font-inter bg-blue-100 px-4 py-2 rounded-md">
+            LaTeX code
+          </p>
         </div>
       </div>
     </div>

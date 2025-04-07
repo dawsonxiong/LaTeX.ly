@@ -16,7 +16,7 @@ class OCRNet(nn.Module):
         super(OCRNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1)
         self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
-        self.fc = nn.Linear(num_features, 86)  # Output has 86 classes instead of 10
+        self.fc = nn.Linear(num_features, 81)  # Output has 81 classes
 
     def forward(self, x):
         x = f.relu(self.conv1(x))
@@ -28,13 +28,13 @@ class OCRNet(nn.Module):
 # Load model
 num_features = 32 * 64 * 64
 model = OCRNet(num_features)
-model.load_state_dict(torch.load('model/LaTeXly_v3.pth'))
+model.load_state_dict(torch.load('models/LaTeXly_v5.pth'))
 model.eval()
 
 classes = ['!', '(', ')', '+', ',', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', '\\Delta', 'a', '\\alpha',
-    'b', '\\beta', 'c', '\\cos', 'd', '\\div', 'e', '\\exists', 'f', '\\forall', '/', 'g', '\\geq', '\\gt', 'h',
-    'i', '\\in', '\\infty', '\\int', 'j', 'k', '\\lambda', '\\leq', '\\lim', '\\log', '\\lt', 'm', '\\mu', 'n', '\\neq', 'p', '\\pi',
-    '\\pm', 'q', 'r', '\\rightarrow', 's', '\\sigma', '\\sin', '\\sum', 't', '\\tan', '\\theta', '\\times', 'u', 'A', 'B', 'C',
+    'b', '\\beta', 'c', 'd', '\\div', 'e', '\\exists', 'f', '\\forall', '/', 'g', '\\geq', '\\gt', 'h',
+    'i', '\\in', '\\infty', '\\int', 'j', 'k', '\\lambda', '\\leq', '\\lt', 'm', '\\mu', 'n', '\\neq', 'p', '\\pi',
+    '\\pm', 'q', 'r', '\\rightarrow', 's', '\\sigma', '\\sum', 't', '\\theta', '\\times', 'u', 'A', 'B', 'C',
     'E', 'F', 'G', 'I', 'N', 'P', 'R', 'S', 'T', 'X', 'v', '|', 'w', 'x', 'y', 'z', '\\{', '\\}']
 
 def predict_out(input_source, is_path=True):
