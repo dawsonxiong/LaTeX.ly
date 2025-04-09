@@ -1,6 +1,6 @@
 # Welcome to LaTeX.ly!
 
-<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png" alt="Homepage" width="1120" height="420">
+<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png" alt="Homepage" width="1120" height="410">
 
 ## 🚀 Features
 - Math equation uploading and processing
