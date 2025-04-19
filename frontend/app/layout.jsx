@@ -1,6 +1,11 @@
 import "../styles/globals.css";
 import Navbar from "/components/Navbar";
 
+export const metadata = {
+  title: 'LaTeX.ly | Math to LaTeX Converter',
+  description: 'Convert mathematical equations to LaTeX code instantly!',
+};
+
 export default function Layout({ children }) {
   return (
     <html lang="en">

@@ -1,0 +1,8 @@
+# Requirements for LaTeX.ly backend:
+
+Flask==2.2.2
+Flask-Cors==3.0.10
+numpy==1.23.5
+opencv-python==4.7.0.72
+torch==2.0.1
+python-dotenv==1.0.0

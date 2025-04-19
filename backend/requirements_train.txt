@@ -1,0 +1,9 @@
+# Requirements to train LaTeX.ly
+
+numpy==1.23.5
+opencv-python==4.7.0.72
+torch==2.0.1
+torchvision==0.15.2
+python-dotenv==1.0.0
+matplotlib==3.6.3
+Pillow==9.4.0
