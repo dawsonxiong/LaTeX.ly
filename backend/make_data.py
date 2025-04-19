@@ -2,14 +2,15 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import os
 
+# List of math and non-math symbols
 math_symbols = [
     r'0', r'1', r'2', r'3', r'4', r'5', r'6', r'7', r'8', r'9', r'+', r'-', r'=', r',',
     r'a', r'b', r'c', r'd', r'e', r'f', r'g', r'h', r'i', r'j', r'k', r'm', r'n',
     r'p', r'q', r'r', r's', r't', r'u', r'v', r'w', r'x', r'y', r'z',
     r'\{', r'\}', r'(', r')', r'!', r'|', r'<', r'>', r'/',
-    r'\exists', r'\in', r'\forall', r'lim', r'\int', r'\infty', 
+    r'\exists', r'\in', r'\forall', r'lim', r'\int', r'\infty',
     r'\rightarrow', r'\pm', r'\times', r'\div', r'\geq', r'\leq', r'\neq',
-    r'\alpha', r'\beta', r'\gamma', r'\delta', r'\theta', r'\lambda', r'\sigma', r'\mu', r'\pi', r'\Delta', r'\sum',
+    r'\alpha', r'\beta', r'\delta', r'\theta', r'\lambda', r'\sigma', r'\mu', r'\pi', r'\Delta', r'\sum',
     r'\sin', r'\cos', r'\tan', r'log'
 ]
 symbols = [
@@ -19,6 +20,7 @@ symbols = [
     r'\{', r'\}', r'(', r')', r'!', r'|', r'<', r'>', r'/'
 ]
 
+# List of math fonts
 math_fonts = ["cm", "stix", "stixsans", "dejavuserif", "dejavusans"]
 serif_fonts = ["Times New Roman", "Georgia", "Cambria", "Book Antiqua", "Palatino Linotype"]
 sans_serif_fonts = ["Arial", "Calibri", "Verdana", "Segoe UI", "Century Gothic"]
@@ -41,12 +43,9 @@ rename_map = {
     "/": "forwards-slash"
 }
 
-# also wants to add support for fractions, exponents, degrees, sqrt, abs
-
 # Set directory
-base = r"test"
+base = r"mydata"
 os.makedirs(base, exist_ok=True)
-
 
 # Process math symbols
 def process(symbol, dir):
@@ -62,15 +61,13 @@ def process(symbol, dir):
         plt.text(0.5, 0.5, f"${symbol}$", fontsize=50, ha='center', va='center')
 
         ax = plt.gca()
-        ax.set_position([0, 0, 1, 1])  # Remove excess space
+        ax.set_aspect('equal')
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
 
         plt.axis('off')
-        plt.tight_layout(pad=0)
 
         filename = str(count) + ".png"
         plt.savefig(os.path.join(dir, filename),
-                    bbox_inches='tight',
-                    pad_inches=0.01,
                     dpi=100,
                     format='png')
         plt.close()
@@ -85,7 +82,8 @@ def process(symbol, dir):
 
                 plt.figure(figsize=(target_size / 100, target_size / 100), dpi=100)
                 ax = plt.gca()
-
+                ax.set_aspect('equal')
+                plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
                 ax.set_xlim(-0.5, 1.5)
                 ax.set_ylim(-0.5, 1.5)
 
@@ -94,12 +92,9 @@ def process(symbol, dir):
                          bbox=dict(boxstyle="square,pad=0", facecolor="white", edgecolor="none"))
 
                 plt.axis('off')
-                plt.tight_layout(pad=0)
 
                 filename = str(count) + ".png"
                 plt.savefig(os.path.join(dir, filename),
-                            bbox_inches='tight',
-                            pad_inches=0.01,
                             dpi=100,
                             format='png')
                 plt.close()

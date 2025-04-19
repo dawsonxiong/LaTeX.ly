@@ -1,6 +1,6 @@
 # Welcome to LaTeX.ly!
 
-<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png" alt="Homepage" width="1120" height="445">
+<img src="https://github.com/dawsonxiong/LaTeX.ly/blob/main/frontend/public/home.png" alt="Homepage" width="1120" height="420">
 
 ## 🚀 Features
 - Math equation uploading and processing
@@ -32,6 +32,16 @@
 - Node.js (v14.6.0 or higher)
 - Docker
 - Python (v3.9 or higher)
+
+### Frontend
+1. Navigate to the frontend directory: `cd frontend`
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+
+### Backend
+1. Navigate to the backend directory:  `cd backend`
+2. Install Python packages: `pip install -r requirements.txt`
+3. Start Flask server: `python read.py`
 
 ## ❗ What I learned
 ### Having a good dataset is important
