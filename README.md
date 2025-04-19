@@ -40,8 +40,9 @@
 
 ### Backend
 1. Navigate to the backend directory:  `cd backend`
-2. Install Python packages: `pip install -r requirements.txt`
-3. Start Flask server: `python read.py`
+2. Install Python packages: `pip install -r requirements.txt`.
+3. If you would like to train the model: `pip install -r requirements_train.txt`
+4. Start Flask server: `python read.py`
 
 ## ❗ What I learned
 ### Having a good dataset is important
